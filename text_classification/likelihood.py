@@ -14,6 +14,9 @@ def likelihood(x):
     #TODO
 
     # begin answer
+    tot = np.sum(x,axis=1)
+    for i in range(C):
+            l[i]=(x[i]+1)/(tot[i]+2)  # Laplacian correction
     # end answer
 
     return l

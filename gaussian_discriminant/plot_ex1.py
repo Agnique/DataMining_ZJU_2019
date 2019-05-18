@@ -44,6 +44,7 @@ def plot_ex1(mu0, Sigma0, mu1, Sigma1, phi, fig_title, pos):
     fig.pcolormesh(xs, ys, decisionmap, cmap=cmap, alpha=0.8)
 
     diff = abs(pos_prob - 0.5)
+    
     diff_sorted = sorted(diff)
     threshold = diff_sorted[len(diff_sorted) // 500]
     bb = xy[diff < threshold, :]
@@ -52,5 +53,6 @@ def plot_ex1(mu0, Sigma0, mu1, Sigma1, phi, fig_title, pos):
     fig.plot(bb[:, 0], bb[:, 1], '.', color='black', markersize=5)
     fig.set_title(fig_title)
     fig.set_aspect('equal', adjustable='box')
+   
 
     

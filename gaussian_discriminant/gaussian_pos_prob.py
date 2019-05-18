@@ -30,12 +30,11 @@ def gaussian_pos_prob(X, Mu, Sigma, Phi):
         for j in range(K):
             l[i,j] = 1/(2*math.pi*math.sqrt(np.linalg.det(Sigma[:,:,j])))*math.exp(-1/2*np.dot(np.dot((X[:,i]-Mu[:,j]).transpose(),np.linalg.inv(Sigma[:,:,j])),(X[:,i]-Mu[:,j])))
             px += l[i,j]*Phi[j]
-        p[i,j] = l[i,j]*Phi[j]/px
+        for j in range(K):
+            p[i,j] = l[i,j]*Phi[j]/px
             
     
     # end answer
-    
-    
     
     return p
     
