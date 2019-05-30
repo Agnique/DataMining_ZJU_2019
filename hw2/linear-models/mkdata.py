@@ -36,3 +36,25 @@ def mkdata(N, noisy=None):
 
     return X, y, w
 
+def mktestdata(N, w):
+    '''
+    MKTESTDATA Generate test data set.
+    INPUT:  N:     number of samples.
+            w: target function params.
+    
+    OUTPUT: X: test features, P-by-N matrix.
+            y: test labels, 1-by-N row vector.
+    '''
+    data_range = np.array([-1, 1])
+    dim = 2
+
+    X = np.random.random((dim, N)) * (data_range[1] - data_range[0]) + data_range[0]
+    while True:    
+        y = np.sign(np.matmul(w.T, np.vstack((np.ones((1, N)), X))))
+        if np.all(y):
+            break
+    return X,y
+
+
+
+

@@ -16,5 +16,9 @@ def ridge(X, y, lmbda):
     w = np.zeros((P + 1, 1))
     # YOUR CODE HERE
     # begin answer
+    
+    X = np.vstack((np.ones(N),X))
+    tmp = np.linalg.pinv(np.dot(X,X.T)+lmbda*np.eye(P+1))
+    w = np.dot(np.dot(tmp, X), y.T)
     # end answer
     return w
