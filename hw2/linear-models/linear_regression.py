@@ -13,5 +13,8 @@ def linear_regression(X, y):
     w = np.zeros((P + 1, 1))
     # YOUR CODE HERE
     # begin answer
+    
+    X = np.vstack((np.ones(N).T,X))
+    w = np.dot(np.dot(np.linalg.inv(np.dot(X,X.T)),X),y.T)
     # end answer
     return w
