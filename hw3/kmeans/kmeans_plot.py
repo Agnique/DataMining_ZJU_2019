@@ -12,8 +12,8 @@ def kmeans_plot(x, idx, ctrs, iter_ctrs):
     """
     plt.figure(figsize=(10, 10))
 
-    color = ['red', 'blue']
-    fmt = ['rs-', 'bo-']
+    color = ['red', 'blue','green','yellow','c']
+    fmt = ['rs-', 'bo-','gs-','ys-','cs-']
     for label in np.unique(idx):
         plt.scatter(x[idx == label, 0], x[idx == label, 1], s=3, c=color[label])
         plt.plot(iter_ctrs[:, label, 0], iter_ctrs[:, label, 1],
